@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:random_pictures/circleButton.dart';
 import 'constant.dart';
 import 'dart:math';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,11 +48,15 @@ class _RandomPicturesState extends State<RandomPictures> {
         : selectedIcon = kPlayIcon;
   } //updateIcon()
 
-  void toast({String title, context}) {
-    Alert(
-      context: context,
-      title: title,
-    ).show();
+  void toast({String message}) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.grey,
+        textColor: kWhiteColor,
+        fontSize: 16.0);
   }
 
   @override
@@ -83,7 +87,7 @@ class _RandomPicturesState extends State<RandomPictures> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      toast(title: 'You pressed previous ', context: context);
+                      toast(message: 'You pressed previous ');
                     });
                   },
                   child: iconButton(
@@ -101,7 +105,7 @@ class _RandomPicturesState extends State<RandomPictures> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      toast(title: 'You pressed Next ', context: context);
+                      toast(message: 'You pressed Next ');
                     });
                   },
                   child: iconButton(icon: kNextIcon, color: KInactiveIconColor),

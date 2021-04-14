@@ -9,12 +9,13 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  fluttertoast: ^8.0.3
+
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.0
-  rflutter_alert: ^1.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
